@@ -1,0 +1,31 @@
+# Sample product data
+products = [
+    {"name": "T-Shirt", "size": "M", "color": "Red", "price": 20},
+    {"name": "Jeans", "size": "L", "color": "Blue", "price": 40},
+    {"name": "Jacket", "size": "S", "color": "Black", "price": 60},
+    {"name": "Hat", "size": "M", "color": "Red", "price": 15},
+]
+
+while True:
+    # User input
+    size_filter = input("Enter size (S, M, L) or 'exit' to quit: ")
+    if size_filter.lower() == 'exit':
+        break
+    color_filter = input("Enter color: ")
+    min_price = float(input("Enter minimum price: "))
+    max_price = float(input("Enter maximum price: "))
+
+    # Filtering products
+    filtered_products = [
+        product for product in products
+        if product['size'] == size_filter and
+           product['color'].lower() == color_filter.lower() and
+           min_price <= product['price'] <= max_price
+    ]
+
+    # Displaying results
+    print("Filtered Products:")
+    for product in filtered_products:
+        print(product)
+
+    print("\n")  # Adding a newline for better readability between sets of inputs ```python
